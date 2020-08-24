@@ -1,0 +1,50 @@
+
+<div class="container mx-auto">
+{{!-- container paddin 4 --}}
+    <div class="row">
+        <div draggable="true" class="col-md1">
+            <div class="card text-center align-middle m-2 border-primary">
+                <div class="card-body p-3">
+                    <a class="btn btn-primary btn-lg" href="./links/add">
+                        <i class="fas fa-plus"></i>
+                    </a>
+                </div>
+            </div>
+        </div>  
+        {{#each links}}
+        {{!-- para cada "links"... --}}
+            <div draggable="true" class="col-md1">
+                <div class="card text-center m-2 border-primary">
+                    <div class="card-body p-3">
+                        <a href="{{url}}" target="_blank">
+                            <h2 class="card-title text-capitalize font-weight-bold lead">
+                                {{title}}
+                            </h2>
+                        </a>
+                        <div class="navbar-nav">
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Opciones</a>
+                            <div class="dropdown-menu text-center">
+                                <p class="m-2 font-italic"> {{description}} </p>
+                                <p class="m-2 text-muted"> {{timeago created_at}} </p>
+                                <a href="links/edit/{{id}}" class="btn btn-warning text-white m-2 p-2 lead">Edit</a>
+                                <a href="links/delete/{{id}}" class="btn btn-danger m-2 p-2 lead">Delete</a>
+                                
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            {{else}}
+                <div class="col-md-4 mx-auto">
+                    <div class="card card-body text-center border-primary">
+                        <p>No hay links guardados</p>
+                        <a href="/links/add">Crear link</a>
+                    </div>
+                </div>
+        {{/each}}
+
+    </div>
+</div>
